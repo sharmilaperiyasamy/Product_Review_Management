@@ -124,5 +124,15 @@ namespace Product_Review_Manage
                 Console.WriteLine("ProductId: " + item.ProductId + "\tAverage." + item.Average);
             }
         }
+        //uc11 review message contain "nice" using  linq
+        public void reviewNice(DataTable dt)
+        {
+            var output = from product in dt.AsEnumerable() where product.Field<string>("Review") == "Nice" select product;
+            Console.WriteLine("Records having review nice.");
+            foreach (var item in output)
+            {
+                Console.WriteLine("ProductId: " + item.Field<int>("ProductId") + "\tUserID: " + item.Field<int>("UserId") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
+            }
+        }
     }
 }

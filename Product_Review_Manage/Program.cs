@@ -78,6 +78,10 @@ namespace Product_Review_Manage
                         dt = review.createDataTable(product_Reviews);
                         review.averageRatingOfProductId(dt);
                         break;
+                    case 11:
+                        dt = review.createDataTable(product_Reviews);
+                        review.reviewNice(dt);
+                        break;
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;
