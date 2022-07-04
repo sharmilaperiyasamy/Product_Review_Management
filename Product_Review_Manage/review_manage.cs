@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
+using System.Data.
 using System.Threading.Tasks;
 
 namespace Product_Review_Manage
@@ -77,6 +79,26 @@ namespace Product_Review_Manage
             {
                 Console.WriteLine("\t" + item.productId + "\t|\t" + item.review);
             }
+        }
+        //uc8 create datatable and add columns to the table 
+        public DataTable createDataTable(List<Product_Review> product_Reviews)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ProductId", typeof(Int32));
+            dt.Columns.Add("UserId", typeof(Int32));
+            dt.Columns.Add("Rating", typeof(Int32));
+            dt.Columns.Add("Review", typeof(String));
+            dt.Columns.Add("isLike", typeof(bool));
+            foreach (var item in product_Reviews)
+            {
+                dt.Rows.Add(item.productId, item.userId, item.rating, item.review, item.isLike);
+            }
+            Console.WriteLine("Records present in DataTable.");
+            foreach (var item in dt.AsEnumerable())
+            {
+                Console.WriteLine("ProductId: " + item.Field<int>("ProductId") + "\tUserID: " + item.Field<int>("UserId") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
+            }
+            return dt;
         }
     }
 }

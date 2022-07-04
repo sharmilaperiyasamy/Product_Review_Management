@@ -67,6 +67,9 @@ namespace Product_Review_Manage
                     case 7:
                         review.productId_reviewLINQ(product_Reviews);
                         break;
+                    case 8:
+                        review.createDataTable(product_Reviews);
+                        break;
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;
