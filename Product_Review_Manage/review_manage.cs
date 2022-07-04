@@ -58,5 +58,15 @@ namespace Product_Review_Manage
                 Console.WriteLine("\t" + item.productId + "\t|\t" + item.review);
             }
         }
+        //uc6 skip top 5 records from the list and display the records
+        public void skipTop5Records(List<Product_Review> product_Reviews)
+        {
+            var output = (from product in product_Reviews select product).Skip(5);
+            Console.WriteLine("Records after skipping top 5.");
+            foreach (var item in output)
+            {
+                Console.WriteLine("Product Id : " + item.productId + "\tUser Id : " + item.userId + "\tRating : " + item.rating + "\tReview : " + item.review + "\tisLike : " + item.isLike);
+            }
+        }
     }
 }

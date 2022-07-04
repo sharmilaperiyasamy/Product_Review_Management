@@ -61,6 +61,9 @@ namespace Product_Review_Manage
                     case 5:
                         review.productId_review(product_Reviews);
                         break;
+                    case 6:
+                        review.skipTop5Records(product_Reviews);
+                        break;
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;
