@@ -52,6 +52,9 @@ namespace Product_Review_Manage
                     case 2:
                         review.top3HighRatings(product_Reviews);
                         break;
+                    case 3:
+                        review.rating_productId(product_Reviews);
+                        break;
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;

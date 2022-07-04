@@ -26,5 +26,17 @@ namespace Product_Review_Manage
                 Console.WriteLine("Product Id : " + item.productId + "\tUser Id : " + item.userId + "\tRating : " + item.rating + "\tReview : " + item.review + "\tisLike : " + item.isLike);
             }
         }
+        //uc3 retreive all records from list who's rating are greater than 3 and product Id is 1 or 4 or 9
+        public void rating_productId(List<Product_Review> product_Reviews)
+        {
+            var output = (from product in product_Reviews
+                          where product.rating > 3 && (product.productId == 1 || product.productId == 4 || product.productId == 9)
+                          select product);
+            Console.WriteLine("Records having ratings > 3 and product id is 1 or 4 or 9.");
+            foreach (var item in output)
+            {
+                Console.WriteLine("Product Id : " + item.productId + "\tUser Id : " + item.userId + "\tRating : " + item.rating + "\tReview : " + item.review + "\tisLike : " + item.isLike);
+            }
+        }
     }
 }
