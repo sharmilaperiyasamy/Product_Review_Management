@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace Product_Review_Manage
@@ -99,6 +99,16 @@ namespace Product_Review_Manage
                 Console.WriteLine("ProductId: " + item.Field<int>("ProductId") + "\tUserID: " + item.Field<int>("UserId") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
             }
             return dt;
+        }
+        //uc9 records from datatable who's isLike value is true.
+        public void isLikeValueTrue(DataTable dt)
+        {
+            var output = (from product in dt.AsEnumerable() where product.Field<bool>("isLike") == true select product);
+            Console.WriteLine("\n Records who's isLike value is true.\n");
+            foreach (var item in output)
+            {
+                Console.WriteLine("ProductId: " + item.Field<int>("ProductId") + "\tUserID: " + item.Field<int>("UserId") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
+            }
         }
     }
 }

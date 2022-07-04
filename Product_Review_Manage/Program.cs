@@ -70,6 +70,10 @@ namespace Product_Review_Manage
                     case 8:
                         review.createDataTable(product_Reviews);
                         break;
+                    case 9:
+                        DataTable dt = review.createDataTable(product_Reviews);
+                        review.isLikeValueTrue(dt);
+                        break;
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;
