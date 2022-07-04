@@ -74,6 +74,10 @@ namespace Product_Review_Manage
                         DataTable dt = review.createDataTable(product_Reviews);
                         review.isLikeValueTrue(dt);
                         break;
+                    case 10:
+                        dt = review.createDataTable(product_Reviews);
+                        review.averageRatingOfProductId(dt);
+                        break;
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;

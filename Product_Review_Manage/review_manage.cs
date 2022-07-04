@@ -110,5 +110,19 @@ namespace Product_Review_Manage
                 Console.WriteLine("ProductId: " + item.Field<int>("ProductId") + "\tUserID: " + item.Field<int>("UserId") + "\tRating: " + item.Field<int>("Rating") + "\tReview: " + item.Field<string>("Review") + "\tisLike: " + item.Field<bool>("isLike"));
             }
         }
+        //uc10 find average rating of each product id using linq
+        public void averageRatingOfProductId(DataTable dt)
+        {
+            var output = dt.AsEnumerable().GroupBy(dt => dt.Field<int>("ProductId")).Select(field => new
+            {
+                ProductId = field.Key,
+                Average = field.Average(x => x.Field<int>("Rating"))
+            });
+            Console.WriteLine("Average rating of each productId.");
+            foreach (var item in output)
+            {
+                Console.WriteLine("ProductId: " + item.ProductId + "\tAverage." + item.Average);
+            }
+        }
     }
 }
