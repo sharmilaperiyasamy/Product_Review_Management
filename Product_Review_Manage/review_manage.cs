@@ -48,5 +48,15 @@ namespace Product_Review_Manage
                 Console.WriteLine("\t" + item.productId + "\t|\t" + item.Count);
             }
         }
+        //uc 5 retreive product id and review from the list for all records
+        public void productId_review(List<Product_Review> product_Reviews)
+        {
+            var output = (from product in product_Reviews select new { productId = product.productId, review = product.review });
+            Console.WriteLine("Product Id\t|\tReview");
+            foreach (var item in output)
+            {
+                Console.WriteLine("\t" + item.productId + "\t|\t" + item.review);
+            }
+        }
     }
 }
