@@ -38,5 +38,15 @@ namespace Product_Review_Manage
                 Console.WriteLine("Product Id : " + item.productId + "\tUser Id : " + item.userId + "\tRating : " + item.rating + "\tReview : " + item.review + "\tisLike : " + item.isLike);
             }
         }
+        //uc4 retreive count of review present for each product Id use group by LINQ operator
+        public void retieve_count(List<Product_Review> product_Reviews)
+        {
+            var output = (product_Reviews.GroupBy(product => product.productId).Select(g => new { productId = g.Key, Count = g.Count() }));
+            Console.WriteLine("Product Id \t|\tCount");
+            foreach (var item in output)
+            {
+                Console.WriteLine("\t" + item.productId + "\t|\t" + item.Count);
+            }
+        }
     }
 }

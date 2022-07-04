@@ -55,6 +55,9 @@ namespace Product_Review_Manage
                     case 3:
                         review.rating_productId(product_Reviews);
                         break;
+                    case 4:
+                        review.retieve_count(product_Reviews);
+                        break;
                     default:
                         Console.WriteLine("Enter valid choice.");
                         break;
